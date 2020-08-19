@@ -252,6 +252,7 @@ class _BodyState extends State<_Body> {
         final height = width;
         final images = widget.vm.images.map<File>((v) => File(v)).toList();
 
+
         final children = images
             .asMap()
             .entries

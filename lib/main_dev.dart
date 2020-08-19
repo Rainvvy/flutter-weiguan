@@ -7,6 +7,7 @@ import 'config.dart';
 import 'factory.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   WgConfig.packageInfo = await PackageInfo.fromPlatform();
   WgConfig.debug = true;
   WgConfig.loggerLevel = Level.ALL;

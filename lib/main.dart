@@ -6,6 +6,7 @@ import 'config.dart';
 import 'factory.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   WgConfig.packageInfo = await PackageInfo.fromPlatform();
 
   final store = await WgFactory().getStore();

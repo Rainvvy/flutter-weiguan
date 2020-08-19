@@ -38,13 +38,14 @@ class _BodyState extends State<_Body> {
   var _isLoading = false;
 
   void _submit() {
+    //验证器
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
 
       setState(() {
         _isLoading = true;
       });
-
+      //发送异步action  请求服务器数据
       StoreProvider.of<AppState>(context).dispatch(accountRegisterAction(
         onSucceed: (user) {
           setState(() {

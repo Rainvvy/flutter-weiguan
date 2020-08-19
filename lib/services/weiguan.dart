@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:async';
 import 'package:dio/dio.dart';
+import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:meta/meta.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:cookie_jar/cookie_jar.dart';
@@ -17,6 +18,7 @@ class WgApiResponse {
   static const int codeResponseError = -2;
   static const int codeRequestError = -1;
   static const int codeOk = 0;
+
 
   final int code;
   final String message;
@@ -77,6 +79,7 @@ class WgService {
     }
 
     if (response.statusCode == HttpStatus.ok) {
+
       return WgApiResponse.fromJson(response.data);
     } else {
       return WgApiResponse(

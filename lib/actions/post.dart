@@ -95,19 +95,27 @@ ThunkAction<AppState> publishPostAction({
     (Store<AppState> store) async {
       final wgService = await WgFactory().getWgService();
 
-      final data = FormData.from({
+      final data = FormData.fromMap({
         'type': type.toString().split('.')[1],
         'text': text,
       });
+
+
       if (type == PostType.image) {
         for (var i = 0; i < images.length; i++) {
-          data['file${i + 1}'] =
-              UploadFileInfo(File(images[i]), basename(images[i]));
+
+          MultipartFile.fromFile(images[i], filename : basename(images[i]))
+              .then((value) => data.files.add(MapEntry('file${i+1}', value )));
+
+//          data.fields[i] =
+//              MultipartFile.fromFile(images[i], filename : basename(images[i]));
         }
       } else if (type == PostType.video) {
         for (var i = 0; i < videos.length; i++) {
-          data['file${i + 1}'] =
-              UploadFileInfo(File(videos[i]), basename(videos[i]));
+//          data['file${i + 1}'] =
+//              MultipartFile.fromFile(videos[i], filename : basename(videos[i]));
+          MultipartFile.fromFile(images[i], filename : basename(images[i]))
+              .then((value) => data.files.add(MapEntry('file${i+1}', value )));
         }
       }
 

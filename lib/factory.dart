@@ -80,6 +80,7 @@ class WgFactory {
         wms.add(LoggingMiddleware<AppState>(
             logger: getLogger('action'), level: Level.FINE));
       }
+
       wms.addAll([
         thunkMiddleware,
         persistor.createMiddleware(),

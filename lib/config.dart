@@ -6,9 +6,9 @@ class WgConfig {
   static PackageInfo packageInfo;
   static var domain = 'weiguan.app';
   static var wgApiBaseUrl = 'https://$domain/api';
-  static var debug = false;
+  static var debug = true;
   static var loggerLevel = Level.INFO;
-  static var isLogAction = false;
-  static var isLogApi = false;
-  static var isMockApi = false;
+  static var isLogAction = true;
+  static var isLogApi = true;
+  static var isMockApi = true;
 }

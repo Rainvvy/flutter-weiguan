@@ -39,7 +39,6 @@ class _BodyState extends State<_Body> {
   @override
   void initState() {
     super.initState();
-
     _bootstrap();
   }
 
@@ -75,7 +74,7 @@ class _BodyState extends State<_Body> {
               image: AssetImage('assets/wg-icon-no-bg.png'),
             ),
           ),
-          Spacer(),
+          Spacer(),   //空格 flex:1
           _isFailed
               ? Column(
                   children: <Widget>[
